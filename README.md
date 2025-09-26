@@ -1,0 +1,2 @@
+# readyworld.uz
+my project 
