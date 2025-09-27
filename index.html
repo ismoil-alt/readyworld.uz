@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>ReadyWorld</title>
+<style>
+  :root{
+    --accent:#FF6A00;
+    --accent-2:#FFB400;
+    --dark:#121214;
+    --card:#1f1f22;
+    --muted:#bfbfbf;
+    --bg:#f5f6f7;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    background:var(--bg);
+    color:#0f1720;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* Header / Hero */
+  header{
+    height:78vh;
+    min-height:520px;
+    background:linear-gradient(90deg,var(--accent),var(--accent-2));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:left;
+    padding:48px;
+    color:#fff;
+    position:relative;
+    overflow:hidden;
+  }
+  .container{max-width:1200px;margin:0 auto;width:100%;}
+  .nav{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    top:24px;
+    display:flex;
+    gap:18px;
+    align-items:center;
+  }
+  .logo{
+    position:absolute;
+    left:24px;
+    top:18px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .logo .mark{
+    width:46px;height:46px;background:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--accent);font-weight:800;
+  }
+  .nav a{
+    color:rgba(255,255,255,0.95);
+    text-decoration:none;
+    padding:10px 14px;
+    border-radius:8px;
+    font-weight:600;
+    font-size:14px;
+  }
+  .nav a:hover{background:rgba(255,255,255,0.08)}
+  .hero{
+    display:flex;
+    gap:40px;
+    align-items:center;
+    width:100%;
+  }
+  .hero-left{
+    max-width:680px;
+  }
+  h1{
+    font-size:56px;
+    margin:0 0 14px 0;
+    line-height:1.02;
+    letter-spacing:1px;
+    text-transform:uppercase;
+  }
+  p.lead{
+    font-size:18px;
+    margin:0 0 24px 0;
+    color:rgba(255,255,255,0.95);
+  }
+
+  /* Right hero illustration placeholder */
+  .hero-right{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+  .hero-image{
+    width:360px;height:360px;background:rgba(255,255,255,0.12);
+    border-radius:18px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;
+    backdrop-filter: blur(4px);
+  }
+
+  /* Middle content */
+  main{padding:48px 24px;max-width:1200px;margin:0 auto}
+  section{margin-bottom:36px}
+
+  h2{color:var(--accent);font-size:28px;margin-bottom:12px}
+  .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+  .card{
+    background:#fff;border-radius:14px;padding:18px;box-shadow:0 6px 18px rgba(14,20,30,0.06);
+  }
+  .card h3{margin:8px 0 6px 0;color:#111}
+  .card p{margin:0;color:var(--muted)}
+
+  /* Social banner row */
+  .social-row {
+    display: flex;
+    gap: 16px;
+  }
+
+  .social-banner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    border-radius: 14px;
+    color: white;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease;
+    min-width: 220px;
+  }
+
+  .social-banner .icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+  }
+
+  /* ВКонтакте стиль */
+  .social-banner.vk {
+    background-color: #4c75a3;
+  }
+  .social-banner.vk .icon {
+    background-color: #3b5998;
+  }
+
+  /* Telegram стиль */
+  .social-banner.tg {
+    background-color: #0088cc;
+  }
+  .social-banner.tg .icon {
+    background-color: #007ab8;
+  }
+
+  /* YouTube стиль */
+  .social-banner.yt {
+    background-color: #FF0000;
+  }
+  .social-banner.yt .icon {
+    background-color: #cc0000;
+  }
+
+  /* Discord стиль */
+  .social-banner.dc {
+    background-color: #5865F2;
+  }
+  .social-banner.dc .icon {
+    background-color: #4752c4;
+  }
+
+  .social-banner:hover {
+    filter: brightness(1.1);
+    cursor: pointer;
+  }
+
+  .social-banner h4 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .social-banner p {
+    margin: 2px 0 0 0;
+    font-size: 13px;
+    opacity: 0.9;
+  }
+
+  /* Footer */
+  footer{
+    background:#fff;
+    padding:42px 24px;
+    border-top:1px solid #ececec;
+  }
+  .footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+  .footer-left{display:flex;flex-direction:column;gap:18px}
+  .footer-brand{display:flex;gap:12px;align-items:center}
+  .footer-brand .mark{width:46px;height:46px;border-radius:8px;background:var(--accent);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800}
+  .footer-info{font-size:13px;color:#333;line-height:1.5}
+  .footer-links{display:flex;gap:18px;flex-wrap:wrap}
+  .footer-links a{color:#0f1720;text-decoration:none;font-weight:600}
+
+  .footer-right{display:flex;flex-direction:column;align-items:flex-end;gap:14px}
+  .social-icons{display:flex;gap:10px}
+  .social-icons a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#f0f0f0,#e6e6e6);text-decoration:none}
+  .social-icons img{width:22px;height:22px;display:block}
+
+  .legal{font-size:12px;color:#666;margin-top:8px;text-align:left}
+
+  /* responsive */
+  @media(max-width:900px){
+    h1{font-size:36px}
+    .hero{flex-direction:column;align-items:flex-start}
+    .hero-right{width:100%;display:block;margin-top:18px}
+    .footer-inner{grid-template-columns:1fr}
+    .footer-right{align-items:flex-start}
+    /* About section mobile-friendly */
+    #about {
+      flex-direction: column !important;
+    }
+  }
+
+  /* 🎨 RGB-анимация для текста ReadyWorld */
+  .moving-text {
+    font-size: 32px;
+    font-weight: 800;
+    text-shadow: 0 3px 8px rgba(0,0,0,0.6);
+    background: linear-gradient(90deg, red, orange, yellow, lime, cyan, blue, violet, red);
+    background-size: 400% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rgbFlow 6s linear infinite;
+  }
+
+  @keyframes rgbFlow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="logo">
+      <div class="mark">RW</div>
+      <div style="font-weight:700">Ready World</div>
+    </div>
+
+    <nav class="nav" aria-label="Главная навигация">
+      <a href="#">Bosh sahifa</a>
+      <a href="#about">Biz haqimizda</a>
+      <a href="#services">Xizmatlar</a>
+      <a href="#contacts">Aloqa</a>
+    </nav>
+
+    <div class="hero">
+      <div class="hero-left">
+        <h1>ReadyWorld<br><span style="font-size:18px;letter-spacing:0"> Yangi davr boshlandi</span></h1>
+        <p class="lead">Keng dunyolarni kashf eting, do'stlar orttiring va o'yin imkoniyatlaridan bahramand bo'ling.</p>
+      </div>
+      <div class="hero-right">
+        <div class="hero-image">
+          <div class="moving-text">ReadyWorld</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- О нас -->
+  <section id="about" style="display: flex; gap: 24px; align-items: center; margin-bottom: 48px;">
+    <div style="flex: 1; min-width: 280px;">
+      <h2>Biz haqimizda</h2>
+      <p>Biz sizga noyob va qiziqarli yechimlar yaratamiz. Bizning loyiha o'yin jamoatchiligini birlashtirishni maqsad qiladi.</p>
+      <p>Ready World platformasi orqali siz yangi do'stlar topishingiz, o'yin imkoniyatlarini kengaytirishingiz va jamoaviy tadbirlarda faol ishtirok etishingiz mumkin.</p>
+      <p>Biz innovatsiyalarni qo'llab-quvvatlaymiz va har doim foydalanuvchilarimiz uchun eng yaxshi tajribani yaratishga intilamiz.</p>
+    </div>
+    <div style="flex: 1; min-width: 280px;">
+      <img src="https://via.placeholder.com/480x320" alt="" style="width: 100%; border-radius: 14px; object-fit: cover; box-shadow: 0 6px 18px rgba(0,0,0,0.1);" />
+    </div>
+  </section>
+
+  <!-- Услуги -->
+  <section id="services">
+    <h2>Bizning Xizmatlarimiz</h2>
+    <div class="services">
+      <div class="card">
+        <h3>Server & Community</h3>
+        <p>O'yin serverlari, tadbirlar va jamoaviy funksiyalar.</p>
+      </div>
+      <div class="card">
+        <h3>Do'kon</h3>
+        <p>O'yin ichidagi buyumlar va obunalarga ega bo'lish imkoniyati.</p>
+      </div>
+      <div class="card">
+        <h3>Qo'llab-quvvatlash</h3>
+        <p>Texnik va ma'muriy yordam, tezkor javob.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Социальные баннеры -->
+  <section aria-label="Социальные ссылки">
+    <div class="social-row">
+
+      <!-- VK -->
+      <a class="social-banner vk" href="https://vk.com/id868400798" target="_blank" rel="noopener noreferrer">
+        <div class="icon">VK</div>
+        <div>
+          <h4>ВКонтакте</h4>
+          <p>Yangiliklar va aloqa</p>
+        </div>
+      </a>
+
+      <!-- Telegram -->
+      <a class="social-banner tg" href="https://t.me/readyworldSWS" target="_blank" rel="noopener noreferrer">
+        <div class="icon">TG</div>
+        <div>
+          <h4>Telegram</h4>
+          <p>Bizning kanal</p>
+        </div>
+      </a>
+
+      <!-- YouTube -->
+      <a class="social-banner yt" href="https://www.youtube.com/@mineraftstrimers" target="_blank" rel="noopener noreferrer">
+        <div class="icon">YT</div>
+        <div>
+          <h4>YouTube</h4>
+          <p>Videolar va translyatsiyalar</p>
+        </div>
+      </a>
+
+      <!-- Discord -->
+      <a class="social-banner dc" href="https://discord.com/channels/1421159973010018477/1421159973668262071" target="_blank" rel="noopener noreferrer">
+        <div class="icon">DC</div>
+        <div>
+          <h4>Discord</h4>
+          <p>Aloqa va qo'llab-quvvatlash</p>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <div class="footer-brand">
+        <div class="mark">RW</div>
+        <div>
+          <div style="font-weight:800">Ready World</div>
+          <div class="footer-info">© 2025 Ready World. Barcha huquqlar himoyalangan.</div>
+        </div>
+      </div>
+
+      <div class="footer-info">
+        ИП: xudayqulov ismoil<br>
+        ИНН: 780446233080<br>
+        ОГРНИП: 321784700352257<br>
+        Email: speakerman7555@gmail.com (ПН-ПТ 10:00-18:00 МСК)
+      </div>
+    </div>
+
+    <div class="footer-right">
+      <div class="social-icons">
+        <a href="#" aria-label="VK"><img src="vk-icon.svg" alt="VK" /></a>
+        <a href="#" aria-label="YouTube"><img src="youtube-icon.svg" alt="YouTube" /></a>
+        <a href="#" aria-label="Discord"><img src="discord-icon.svg" alt="Discord" /></a>
+        <a href="#" aria-label="Telegram"><img src="telegram-icon.svg" alt="Telegram" /></a>
+      </div>
+      <div class="legal">© 2025 Ready World. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
